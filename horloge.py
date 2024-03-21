@@ -87,3 +87,26 @@ def Date(t):
     d = t.day
     return "%s %d%d" % (y, m, d)
 
+def Tick():
+    # Draw the dynamic display of hands
+    t = datetime.today()
+    second = t.second + t.microsecond * 0.000001
+    minute = t.minute + second / 60.0
+    hour = t.hour + minute / 60.0
+    secHand.setheading(6 * second)
+    minHand.setheading(6 * minute)
+    hurHand.setheading(30 * hour)
+
+    turtle.tracer(False) 
+    printer.forward(65)
+    printer.write(Week(t), align="center",
+                  font=("Courier", 14, "bold"))
+    printer.back(130)
+    printer.write(Date(t), align="center",
+                  font=("Courier", 14, "bold"))
+    printer.home()
+    turtle.tracer(True)
+
+    # Continue to call tick after 100ms
+    turtle.ontimer(Tick, 100)
+
