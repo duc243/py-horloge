@@ -81,3 +81,9 @@ def Week(t):
             "Thursday", "Friday", "on Saturday", "on Sunday"]
     return week[t.weekday()]
 
+def Date(t):
+    y = t.year
+    m = t.month
+    d = t.day
+    return "%s %d%d" % (y, m, d)
+
