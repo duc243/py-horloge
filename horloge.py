@@ -21,3 +21,29 @@ def mkHand(name, length):
     # Return the last recorded polygon.
     handForm = turtle.get_poly()
     turtle.register_shape(name, handForm)
+
+def Init():
+    global secHand, minHand, hurHand, printer
+    # Reset Turtle to point north
+    turtle.mode("logo")
+    # Create three hands Turtle and initialize
+    mkHand("secHand", 135)
+    mkHand("minHand", 125)
+    mkHand("hurHand", 90)
+    secHand = turtle.Turtle()
+    secHand.shape("secHand")
+    minHand = turtle.Turtle()
+    minHand.shape("minHand")
+    hurHand = turtle.Turtle()
+    hurHand.shape("hurHand")
+
+    for hand in secHand, minHand, hurHand:
+        hand.shapesize(1, 1, 3)
+        hand.speed(0)
+
+    # Create output text Turtle
+    printer = turtle.Turtle()
+    # Hide the turtle shape of the brush
+    printer.hideturtle()
+    printer.penup()
+
