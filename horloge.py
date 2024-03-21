@@ -110,3 +110,14 @@ def Tick():
     # Continue to call tick after 100ms
     turtle.ontimer(Tick, 100)
 
+def main():
+    # Turn on / off turtle animation and set a delay for updating drawings.
+    turtle.tracer(False)
+    Init()
+    SetupClock(160)
+    turtle.tracer(True)
+    Tick()
+    turtle.mainloop()
+
+if __name__ == "__main__":
+    main()
