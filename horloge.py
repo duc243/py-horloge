@@ -76,3 +76,8 @@ def SetupClock(radius):
             Skip(-radius)
         turtle.right(6)
 
+def Week(t):   
+    week = ["Monday", "Tuesday", "Wednesday",
+            "Thursday", "Friday", "on Saturday", "on Sunday"]
+    return week[t.weekday()]
+
